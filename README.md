@@ -5,3 +5,11 @@
 - Redhat acquired the ansible tool in 2015.
 - Ansible is available for RHEL, Debian, Centos, Oracle Linux.
 
+Ansible turns our code into infrastructure i.e. our computing environment has some of the same attributes as your application.
+**IAC: Infrastructure as Code**
+
+- Ansible is agent less like no client installation (like chef-client), direct ssh.
+- Ansible playbook written in YAML (Yet Another Markup Language).
+
+
+
