@@ -11,5 +11,5 @@ Ansible turns our code into infrastructure i.e. our computing environment has so
 - Ansible is agent less like no client installation (like chef-client), direct ssh.
 - Ansible playbook written in YAML (Yet Another Markup Language).
 
-
+![Alt-text](https://github.com/herrry107/ansible/blob/main/images/ansible-architecture.png)
 
