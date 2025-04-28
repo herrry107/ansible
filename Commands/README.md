@@ -31,3 +31,41 @@ ansible developer[-1] --list-hosts  #reverse indexing
 - Ansible ships with a number of modules (Called Module Library) that can be executed directly on remote hosts or through 'playbook'.
 - Your library of modules can reside on any machine, and there are no servers, daemons or database required.
 - The default location for the inventory file is /etc/ansible/hosts
+
+<pre><code>
+#install package command for redhat-client
+ansible developer -b -m yum -a "pkg=httpd state=present" -u ansible
+#install package command for debian-client
+ansible developer -b -m apt -a "pkg=apache2 state=present" -u ansible
+</code></pre>
+
+<pre><code>
+#remove package
+ansible developer -b -m apt -a "pkg=apache2 state=absent" -u ansible
+</code></pre>
+
+<pre><code>
+#start service
+ansible all -b -m service -a "name=apache2 state=started" -u ansibe
+#stop service
+ansible all -b -m service -a "name=apache2 state=stopped" -u ansible
+</code></pre>
+
+<pre><code>
+#adding user to node
+ansile all -b -m user -a "name=raj" -u ansible
+</code></pre>
+
+<pre><code>
+#copy file onto remote
+ansible all -b -m copy -a "src=file1.txt dest=/home/ansible" -u ansible
+</code></pre>
+
+<pre><code>
+ansible demo -b -m setup -a "filter=*ipv4*"
+</code></pre>
+
+**-b: sudo user**
+**-m: module-name**
+**-a: pass argument**
+
