@@ -40,6 +40,7 @@ yum install ansible -y
 -------------------------------------------------------------------------------------------------------
 
 **Client Connection Setup**
+
 ***Command on Client Side***
 <pre><code>
 useradd -m ansible  #create new user with name ansible
@@ -64,3 +65,6 @@ PasswordAuthentication yes
 <pre><code>systemctl restart ssh</code></pre>
 
 ***Command on Server Side***
+<pre><code>ssh keygen</code></pre>
+<pre><code>ssh-copy-id ansible@client-ip</code></pre>
+
