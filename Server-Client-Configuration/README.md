@@ -36,3 +36,31 @@ dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.r
 yum update -y
 yum install ansible -y
 </code></pre>
+
+-------------------------------------------------------------------------------------------------------
+
+**Client Connection Setup**
+***Command on Client Side***
+<pre><code>
+useradd -m ansible  #create new user with name ansible
+passwd ansible      #set password
+</code></pre>
+
+<pre><code>
+visudo    #use command using root
+</code></pre>
+
+<pre><code>
+#add ansible command below of root
+root ALL=(ALL:ALL) ALL
+ansible ALL=(ALL:ALL) NOPASSWD: ALL
+</code></pre>
+
+<pre><code>
+vi /etc/ssh/ssh_config      #open /etc/ssh/ssh_config file
+Match User ansible          #password authentication true for ansible user
+PasswordAuthentication yes
+</code></pre>
+<pre><code>systemctl restart ssh</code></pre>
+
+***Command on Server Side***
