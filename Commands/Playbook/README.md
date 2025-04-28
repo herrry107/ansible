@@ -39,6 +39,7 @@ Customer:
     age: 25
 </code></pre>
 
+playbook1.yml
 <pre><code>
 --- #Gather info playbook
 - hosts: developer    #target group
@@ -47,4 +48,5 @@ Customer:
   connection: ssh
   gather_facts: yes
 </code></pre>
+<pre><code>ansible-playbook playbook1.yml</code></pre>
 
