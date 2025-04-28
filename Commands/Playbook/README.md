@@ -105,3 +105,4 @@ playbook4-handler.yml
       action: service name='{{pkgname}}' state=restarted
 </code></pre>
 <pre><code>ansible-playook playbook4-handler.yml
+![Alt-text](https://github.com/herrry107/ansible/blob/main/images/ansible-handler.png)
