@@ -1,0 +1,8 @@
+--- #run shell script on node
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: run shell script
+      shell: echo "hello" >> /home/ansible/hello1.txt
+

@@ -1,0 +1,13 @@
+--- #copy file from server to client
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: copy file from server to client
+      copy:
+        src: /home/pratik/ansible-practice/ansible/Commands/Playbook/test-script.sh
+        dest: /home/ansible/
+        owner: ansible   #owner of file in node
+        mode: ugo=rw    #permission
+        backup: yes     #create new file if last one already present

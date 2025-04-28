@@ -106,3 +106,57 @@ playbook4-handler.yml
 </code></pre>
 <pre><code>ansible-playook playbook4-handler.yml</code></pre>
 ![Alt-text](https://github.com/herrry107/ansible/blob/main/images/ansible-handler.png)
+
+<pre><code>
+#Check Whether the playbook is formatted correctly or not (dry-run)
+ansible-playbook playbook4-handler.yml
+</code></pre>
+
+----------------------------------------------------------------------------
+
+**copy files**
+
+<pre><code>
+
+--- #copy file from server to client
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: copy file from server to client
+      copy:
+        src: /home/pratik/ansible-practice/ansible/Commands/Playbook/test-script.sh
+        dest: /home/ansible/
+        owner: ansible   #owner of file in node
+        mode: ugo=rw    #permission
+        backup: yes     #create new file if last one already present
+</code></pre>
+
+----------------------------------------------------------------------------
+
+**Run shell command**
+
+<pre><code>
+
+--- #run shell script on node
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: run shell script
+      shell: /home/ansible/test-script.sh >> /home/ansible/log.txt
+</code></pre>
+
+<pre><code>
+
+--- #run shell script on node
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: run shell script
+      shell: echo "hello" >> /home/ansible/hello1.txt
+</code></pre>
+
+
