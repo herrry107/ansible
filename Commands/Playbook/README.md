@@ -82,3 +82,26 @@ playbook2-apache.yml
 </code></pre>
 <pre><code>ansible-playbook playbook3-variable.yml</code></pre>
 
+----------------------------------------------------------------------------
+
+**Ansible Handlers:** A handler is exactly the same as a task, but it will run when called by another task.
+
+Handlers are just like regular tasks in an ansible playbook, but are only run if the task contains a notify direction and also indicates that is changed something.
+
+playbook4-handler.yml
+<pre><code>
+--- #handlers
+- hosts: developer
+  user: ansible
+  become: yes
+  vars:
+    pkgname: apache2
+  tasks:
+    - name: first install apache2
+      action: apt name='{{pkgname}}' state=present
+      notify: service installed #notify name and handler name must same
+  handlers:
+    - name: service installed   #notify name and handler name must same
+      action: service name='{{pkgname}}' state=restarted
+</code></pre>
+<pre><code>ansible-playook playbook4-handler.yml

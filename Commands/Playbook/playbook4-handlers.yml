@@ -1,0 +1,13 @@
+--- #handlers
+- hosts: developer
+  user: ansible
+  become: yes
+  vars:
+    pkgname: apache2
+  tasks:
+    - name: first install apache2
+      action: apt name='{{pkgname}}' state=present
+      notify: service installed #notify name and handler name must same
+  handlers:
+    - name: service installed   #notify name and handler name must same
+      action: service name='{{pkgname}}' state=restarted
