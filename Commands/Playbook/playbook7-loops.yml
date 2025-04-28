@@ -1,0 +1,10 @@
+--- #loops
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add list of user in my nodes
+      user: name='{{item}}' state=present
+      with_items:
+        - varun
+        - amit

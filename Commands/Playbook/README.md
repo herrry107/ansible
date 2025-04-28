@@ -159,4 +159,37 @@ ansible-playbook playbook4-handler.yml
       shell: echo "hello" >> /home/ansible/hello1.txt
 </code></pre>
 
+----------------------------------------------------------------------------
+
+**Loops**
+
+loops include changing ownership on several files and or directories with the file module, creating multiple users with the user module and repeating a polling step untill certain results is reached
+
+playbook7-loops.yml
+<pre><code>
+--- #loops
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add list of user in my nodes
+      user: name='{{item}}' state=present
+      with_items:
+        - varun
+        - amit
+</code></pre>
+<pre><code>ansible-playbook playbook7-loops.yml</code></pre>
+<pre><code>
+
+--- #loops
+- hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add list of user in my nodes
+      user: name='{{item}}' state=absent
+      with_items:
+        - varun
+        - amit
+</code></pre>
 
