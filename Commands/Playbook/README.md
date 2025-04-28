@@ -104,5 +104,5 @@ playbook4-handler.yml
     - name: service installed   #notify name and handler name must same
       action: service name='{{pkgname}}' state=restarted
 </code></pre>
-<pre><code>ansible-playook playbook4-handler.yml
+<pre><code>ansible-playook playbook4-handler.yml</code></pre>
 ![Alt-text](https://github.com/herrry107/ansible/blob/main/images/ansible-handler.png)
