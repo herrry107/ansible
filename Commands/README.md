@@ -22,7 +22,9 @@ ansible developer[-1] --list-hosts  #reverse indexing
 <pre><code>ansible developer -a "sudo apt-get install nginx -y" -u ansible  #install package on node</code></pre>
 <pre><code>ansible developer -ba "apt remove nginx -y" -u ansible   #-b means become super user like sudo</code></pre>
 **-a: arguments**
+
 **-b: become sudo**
+
 **-u: run by user**
 
 
