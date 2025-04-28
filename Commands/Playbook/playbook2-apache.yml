@@ -1,0 +1,8 @@
+--- #install apache2 on node ubuntu
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install apache2 on ubuntu by ansible user
+      action: apt name=apache2 state=present          #for redhat use yum

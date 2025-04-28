@@ -50,3 +50,15 @@ playbook1.yml
 </code></pre>
 <pre><code>ansible-playbook playbook1.yml</code></pre>
 
+playbook2-apache.yml
+<pre><code>
+--- #install apache2 on node ubuntu
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install apache2 on ubuntu by ansible user
+      action: apt name=apache2 state=present          #for redhat use yum
+</code></pre>
+<pre><code>ansible-playbook playbook2-apache.yml</code></pre>
