@@ -27,4 +27,7 @@ ansible developer[-1] --list-hosts  #reverse indexing
 
 **-u: run by user**
 
-
+***2) Ansible Modules:***
+- Ansible ships with a number of modules (Called Module Library) that can be executed directly on remote hosts or through 'playbook'.
+- Your library of modules can reside on any machine, and there are no servers, daemons or database required.
+- The default location for the inventory file is /etc/ansible/hosts
