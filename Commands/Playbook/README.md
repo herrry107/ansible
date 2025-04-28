@@ -62,3 +62,23 @@ playbook2-apache.yml
       action: apt name=apache2 state=present          #for redhat use yum
 </code></pre>
 <pre><code>ansible-playbook playbook2-apache.yml</code></pre>
+
+
+-----------------------------------------------------------------------------
+
+**Ansible Variable:** To use multiple location on script put variable section above tasks so that we define it first and use it later.
+
+<pre><code>
+--- #script for variable
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: apache2
+  tasks:
+    - name: Remove apache2 from node 
+      action: apt name='{{pkgname}}' state=absent
+</code></pre>
+<pre><code>ansible-playbook playbook3-variable.yml</code></pre>
+

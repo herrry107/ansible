@@ -1,0 +1,11 @@
+--- #script for variable
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: apache2
+  tasks:
+    - name: Remove apache2 from node 
+      action: apt name='{{pkgname}}' state=absent
+
