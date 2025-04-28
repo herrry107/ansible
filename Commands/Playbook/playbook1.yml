@@ -1,0 +1,6 @@
+--- #Gather info playbook
+- hosts: developer    #target group
+  user: ansible       #remote user run on node
+  become: yes         # be or run with sudo
+  connection: ssh
+  gather_facts: yes
