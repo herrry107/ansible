@@ -76,7 +76,10 @@ ansible demo -b -m setup -a "filter=*ipv4*"
 - It is human readable data serialization language. It is commonly use for configuration files.
 - Playbook is like a file where you write codes consists of **vars, tasks, handlers, files template and role**.
 - Each playbook is composed of one or more 'modules' in a list modules is a collection of configuration file.
-- Playbooks are divided into many sectors like 
+- Playbooks are divided into many sectors like
+ 
 1.) **Taskget Section:** Define the host against which playbooks task has to be executed.
+
 2.) **Variable Section:** Define Variable
+
 3.) **Task Section:** List of all modules that we need to run in an order. 
