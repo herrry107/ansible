@@ -5,4 +5,17 @@
 
 ![Alt-text](https://github.com/herrry107/ansible/blob/main/images/ansible-roles.png)
 
+- We can organise playbooks into a directory structure called roles.
+- Adding more & more functionality to the playbooks will make it difficult to maintain in a single file.
 
+1) **Default:** It stores the data about role/application default variables example: if you want to run to port 80 or 8080 then variables needs to define in this ports.
+
+2) **Files:** It contains file need to be transferred to the remote VM(static files)
+
+3) **Handlers:** They are triggers or task. We can segregate all the handlers required in playbook.
+
+4) **Meta:** This directory contains files that establish roles dependencies example: Author name, Supported Platform, Dependencies if any.
+
+5) **Tasks:** It contain all the tasks that is normally in the playbook example: Installing packages and copies files etc.
+
+6) **Vars:** Variables for the role can be specified in this directory and used in your configuration files both vars and defaults stores variables.
