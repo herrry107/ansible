@@ -1,0 +1,16 @@
+--- #set crotab
+- name: crontab
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add crontab
+      cron:
+        name: run test Script
+        minute: "*"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        user: ansible
+        job: /home/ansible/test-script.sh

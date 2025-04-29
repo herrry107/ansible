@@ -114,7 +114,7 @@ ansible-playbook playbook4-handler.yml
 
 ----------------------------------------------------------------------------
 
-**copy files**
+**COPY FILES**
 
 <pre><code>
 
@@ -135,7 +135,7 @@ ansible-playbook playbook4-handler.yml
 
 ----------------------------------------------------------------------------
 
-**Run shell command**
+**RUN SHELL COMMAND**
 
 <pre><code>
 
@@ -161,7 +161,7 @@ ansible-playbook playbook4-handler.yml
 
 ----------------------------------------------------------------------------
 
-**Loops**
+**LOOPS**
 
 loops include changing ownership on several files and or directories with the file module, creating multiple users with the user module and repeating a polling step untill certain results is reached
 
@@ -195,7 +195,7 @@ playbook7-loops.yml
 
 ----------------------------------------------------------------------------
 
-**Conditions**
+**CONDITIONS**
 
 Whenever we have different scenarios we put conditions according to the scenario. Sometime we want to skip a particular command on a particular node.
 **when** statement
@@ -281,7 +281,7 @@ playbook11-file-directory.yml
 
 ----------------------------------------------------------------------------
 
-**manage service**
+**MANAGE SERVICE**
 
 playbook12-service.yml
 <pre><code>
@@ -304,3 +304,49 @@ playbook12-service.yml
         enabled: no
 </code></pre>
 
+----------------------------------------------------------------------------
+
+**CRONJOB**
+
+playbook13-set-cronjob.yml
+<pre><code>
+--- #set crotab
+- name: crontab
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add crontab
+      cron:
+        name: run test Script
+        minute: "*"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        user: ansible
+        job: /home/ansible/test-script.sh
+
+</code></pre>
+
+playbook14-disable-cronjob.yml
+<pre><code>
+--- #disable crotab
+- name: crontab
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: add crontab
+      cron:
+        name: run test Script
+        minute: "*"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        user: ansible
+        job: /home/ansible/test-script.sh
+        disabled: yes
+
+</code></pre>
