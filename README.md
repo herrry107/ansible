@@ -46,3 +46,4 @@ Ansible turns our code into infrastructure i.e. our computing environment has so
 - [2. Hosts](https://github.com/herrry107/ansible/tree/main/hosts)
 - [3. Commands](https://github.com/herrry107/ansible/tree/main/Commands)
 - [4. Vault](https://github.com/herrry107/ansible/tree/main/Vault)
+- [5. Roles](https://github.com/herrry107/ansible/tree/main/Roles)
