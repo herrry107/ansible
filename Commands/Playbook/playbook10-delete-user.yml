@@ -1,0 +1,13 @@
+--- #user deletion
+- name: delete user
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: User Deletion
+      user:
+        name: nick
+        comment: new user adding in team
+        shell: /bin/bash
+        state: absent
+        remove: yes

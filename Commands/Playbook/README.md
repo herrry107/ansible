@@ -200,7 +200,7 @@ playbook7-loops.yml
 Whenever we have different scenarios we put conditions according to the scenario. Sometime we want to skip a particular command on a particular node.
 **when** statement
 
-ansible-playbook playbook8-conditions.yml
+playbook8-conditions.yml
 <pre><code>
 --- #conditional command
 - hosts: developer
@@ -214,4 +214,39 @@ ansible-playbook playbook8-conditions.yml
     - name: Install apache2 in Debian
       command: apt-get install apache2 -y
       when: ansible_os_family=="Debian"
+</code></pre>
+<pre><code>ansible-playbook playbook8-conditions.yml</code></pre>
+
+----------------------------------------------------------------------------
+
+playbook9-user-create.yml
+<pre><code>
+--- #user creation
+- name: create user
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: User Creation
+      user:
+        name: nick
+        comment: new user adding in team
+        shell: /bin/bash
+</code></pre>
+
+playbook10-delete-user
+<pre><code>
+--- #user deletion
+- name: delete user
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: User Deletion
+      user:
+        name: nick
+        comment: new user adding in team
+        shell: /bin/bash
+        state: absent
+        remove: yes
 </code></pre>

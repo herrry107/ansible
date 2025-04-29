@@ -1,0 +1,11 @@
+--- #user creation
+- name: create user
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: User Creation
+      user:
+        name: nick
+        comment: new user adding in team
+        shell: /bin/bash
