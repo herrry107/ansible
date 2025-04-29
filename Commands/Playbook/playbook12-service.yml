@@ -1,0 +1,18 @@
+--- #install nginx and start service
+- name: start service
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+      notify: nginx-installed
+  handlers:    
+    - name: nginx-installed
+      service:
+        name: nginx
+        state: stopped
+        enabled: no
+

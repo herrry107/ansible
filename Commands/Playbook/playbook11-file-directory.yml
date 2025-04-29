@@ -1,0 +1,17 @@
+--- #creating files and directory
+- name: create file & directory
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: create file101.txt
+      file:
+        path: /home/ansible/file101.txt
+        state: touch
+        owner: ansible
+        group: ansible
+        mode: ugo=rw
+    - name: create directory
+      file:
+        path: /home/ansible/dir1
+        state: directory

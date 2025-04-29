@@ -252,3 +252,55 @@ playbook10-delete-user
         state: absent
         remove: yes
 </code></pre>
+
+----------------------------------------------------------------------------
+
+**CREATE FILE & DIRECTORY**
+
+playbook11-file-directory.yml
+<pre><code>
+
+--- #creating files and directory
+- name: create file & directory
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: create file101.txt
+      file:
+        path: /home/ansible/file101.txt
+        state: touch
+        owner: ansible
+        group: ansible
+        mode: ugo=rw
+    - name: create directory
+      file:
+        path: /home/ansible/dir1
+        state: directory
+</code></pre>
+
+----------------------------------------------------------------------------
+
+**manage service**
+
+playbook12-service.yml
+<pre><code>
+--- #install nginx and start service
+- name: start service
+  hosts: developer
+  user: ansible
+  become: yes
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+      notify: nginx-installed
+  handlers:    
+    - name: nginx-installed
+      service:
+        name: nginx
+        state: stopped
+        enabled: no
+</code></pre>
+
