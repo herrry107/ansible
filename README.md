@@ -45,3 +45,4 @@ Ansible turns our code into infrastructure i.e. our computing environment has so
 - [1. Server-Client Configuration](https://github.com/herrry107/ansible/tree/main/Server-Client-Configuration)
 - [2. Hosts](https://github.com/herrry107/ansible/tree/main/hosts)
 - [3. Commands](https://github.com/herrry107/ansible/tree/main/Commands)
+- [4. Vault](https://github.com/herrry107/ansible/tree/main/Vault)
