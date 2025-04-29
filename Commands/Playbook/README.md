@@ -193,3 +193,25 @@ playbook7-loops.yml
         - amit
 </code></pre>
 
+----------------------------------------------------------------------------
+
+**Conditions**
+
+Whenever we have different scenarios we put conditions according to the scenario. Sometime we want to skip a particular command on a particular node.
+**when** statement
+
+ansible-playbook playbook8-conditions.yml
+<pre><code>
+--- #conditional command
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install httpd in Redhat
+      command: yum install httpd -y
+      when: ansible_os_family=="RedHat"
+    - name: Install apache2 in Debian
+      command: apt-get install apache2 -y
+      when: ansible_os_family=="Debian"
+</code></pre>

@@ -1,0 +1,12 @@
+--- #conditional command
+- hosts: developer
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install httpd in Redhat
+      command: yum install httpd -y
+      when: ansible_os_family=="RedHat"
+    - name: Install apache2 in Debian
+      command: apt-get install apache2 -y
+      when: ansible_os_family=="Debian"
