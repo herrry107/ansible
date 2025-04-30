@@ -34,3 +34,32 @@ test-role.yml
 </code></pre>
 
 <pre><code>ansible-playbook test-role.yml</code></pre>
+
+we have to put all thing like tasks, handlers vars in separate file in roleslike.
+
+ansible/Roles/test-role/tasks/main.yml
+<pre><code>
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for test-role
+- name: first install apache2
+  action: apt name='{{pkgname}}' state=present
+  notify: service installed #notify name and handler name must same
+</code></pre>
+
+ansible/Roles/test-role/vars/main.yml
+<pre><code>
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for test-role
+pkgname: apachei2
+</code></pre>
+
+ansible/Roles/test-role/handlers/main.yml
+<pre><code>
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for test-role
+- name: service installed   #notify name and handler name must same
+  action: service name='{{pkgname}}' state=restarted
+</code></pre>
