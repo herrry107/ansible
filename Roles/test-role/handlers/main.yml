@@ -1,3 +1,5 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # handlers file for test-role
+- name: service installed   #notify name and handler name must same
+  action: service name='{{pkgname}}' state=restarted

@@ -1,0 +1,6 @@
+--- #handlers
+- hosts: developer
+  user: ansible
+  become: yes
+  roles:
+    - test-role

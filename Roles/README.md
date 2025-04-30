@@ -23,3 +23,14 @@
 create test-role
 <pre><code>ansible-galaxy role init test-role</code></pre>
 
+test-role.yml
+<pre><code>
+--- #handlers
+- hosts: developer
+  user: ansible
+  become: yes
+  roles:
+    - test-role
+</code></pre>
+
+<pre><code>ansible-playbook test-role.yml</code></pre>
