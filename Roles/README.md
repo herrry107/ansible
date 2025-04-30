@@ -19,3 +19,7 @@
 5) **Tasks:** It contain all the tasks that is normally in the playbook example: Installing packages and copies files etc.
 
 6) **Vars:** Variables for the role can be specified in this directory and used in your configuration files both vars and defaults stores variables.
+
+create test-role
+<pre><code>ansible-galaxy role init test-role</code></pre>
+
