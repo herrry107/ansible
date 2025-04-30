@@ -35,7 +35,7 @@ test-role.yml
 
 <pre><code>ansible-playbook test-role.yml</code></pre>
 
-we have to put all thing like tasks, handlers vars in separate file in roleslike.
+we have to put all thing like tasks, handlers vars in separate file in roles like.
 
 ansible/Roles/test-role/tasks/main.yml
 <pre><code>
